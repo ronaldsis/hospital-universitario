@@ -1,0 +1,21 @@
+<!doctype html public "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Prado Chat Demo Login</title>
+	</head>
+	<body>
+		<com:TForm>
+			<h1 class="login">Hospital UV</h1>
+			<fieldset class="login">
+				<legend>Por favor digite su nombre de usuario:</legend>
+				<com:TLabel ForControl="username" Text="Nombre de usuario:" />
+				<com:TTextBox ID="username" MaxLength="20" />
+				<br/>
+				<com:TRequiredFieldValidator ControlToValidate="username" Display="Dynamic" ErrorMessage="Por favor digite un nombre."/>
+				<br/>
+				<com:TButton Text="Entrar" onClick="entrar" />
+			</fieldset>
+		</com:TForm>
+	</body>
+</html>
