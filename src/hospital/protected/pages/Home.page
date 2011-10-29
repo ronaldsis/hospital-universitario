@@ -4,10 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
 <com:THead Title="Cambio de moneda" />
 <body>
-	<h1>Cambio de moneda</h1>
+	<h1>Hospital Universitario</h1> 
 	<com:TForm>
+		<com:TLinkButton Text="Salir" OnClick="salir" CausesValidation="false"/>
 		<fieldset>
-			<legend>Conversion de moneda</legend>
+			<legend>Hospital Universitario</legend>
 				<com:TLabel ForControl="cambioMoneda" Text="Cambio por 1 dolar:"/>
 				<com:TTextBox ID="cambioMoneda"/>
 				<br/>

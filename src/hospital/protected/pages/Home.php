@@ -11,5 +11,11 @@
 				$this->total->Text = $rate * $valorACambiar;
 			}
 		}
+
+		public function salir($sender, $param) {
+			$auth = $this->Application->Modules['auth'];
+			$auth->logout();
+			$this->Response->Redirect($this->Service->ConstructUrl($auth->LoginPage));
+		}
 	}
 ?>
