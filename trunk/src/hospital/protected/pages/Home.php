@@ -1,4 +1,4 @@
-<?
+<?php
 	Prado::using('System.Web.UI.ActiveControls.*');
 
 	class Home extends TPage {
