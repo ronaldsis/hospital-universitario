@@ -1,0 +1,40 @@
+<%@ Theme="Basic" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<com:THead Title="Cambio de moneda" />
+<body>
+	<h1>Cambio de moneda</h1>
+	<com:TForm>
+		<fieldset>
+			<legend>Conversion de moneda</legend>
+				<com:TLabel ForControl="cambioMoneda" Text="Cambio por 1 dolar:"/>
+				<com:TTextBox ID="cambioMoneda"/>
+				<br/>
+				<com:TRequiredFieldValidator ControlToValidate="cambioMoneda" ErrorMessage="Por favor digite el cambio" 
+					Display="Dynamic" />
+				<com:TCompareValidator ControlToValidate="cambioMoneda" DataType="Float" ValueToCompare="0" Operator="GreaterThan" 
+					ErrorMessage="Por favor digite un número positivo" Display="Dynamic"/>
+				<br/>
+
+				<com:TLabel ForControl="cantidadACambiar" Text="Cantidad a cambiar:"/>
+				<com:TTextBox ID="cantidadACambiar"/>
+				<br/>
+				<com:TRequiredFieldValidator ControlToValidate="cantidadACambiar" ErrorMessage="Por favor digite la cantidad a cambiar" Display="Dynamic"/>
+				<com:TDataTypeValidator ControlToValidate="cantidadACambiar" DataType="Float" ErrorMessage="Por favor digite un número" Display="Dynamic"/>
+				<br/>
+
+				<span class="total">En pesos: </span>
+				<com:TActiveLabel ID="total" CssClass="resultado" />
+				<br/>
+
+				<com:TActiveButton Text="Cambiar" OnClick="clickCambiar">
+					<prop:ClientSide.OnLoading>
+						$('<%= $this->total->ClientID %>').innerHTML = "calculando..."
+					</prop:ClientSide.OnLoading>
+				</com:TActiveButton>
+
+		</fieldset>
+	</com:TForm>
+</body>
+</html>

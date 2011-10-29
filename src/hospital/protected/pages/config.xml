@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<modules>
+		<!--
+		<module id="users" class="TUserManager" PasswordMode="Clear">
+			<user name="admin" password="admin"/>
+			<user name="usaurio" password="usaurio"/>
+		</module>
+		-->
+		<module id="users" class="HospitalUserManager"/>
+		<module id="auth" class="TAuthManager" UserManager="users" LoginPage="Login" />
+	</modules>
+	<authorization>
+		<allow pages="Login" users="?" />
+		<allow roles="normal" />
+		<deny users="*" />
+	</authorization>
+</configuration>
+
