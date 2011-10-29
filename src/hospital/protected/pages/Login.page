@@ -15,7 +15,7 @@
 				<com:TRequiredFieldValidator ControlToValidate="username" Display="Dynamic" ErrorMessage="Por favor digite un nombre."/>
 				<br/>
 				<com:TLabel ForControl="password" Text="Contraseña:" />
-				<com:TTextBox ID="password" MaxLength="20" />
+				<com:TTextBox ID="password" MaxLength="20" TextMode="Password" />
 				<br/>
 				<com:TRequiredFieldValidator ControlToValidate="password" Display="Dynamic" ErrorMessage="Por favor digite la contraseña."/>
 				<br/>
