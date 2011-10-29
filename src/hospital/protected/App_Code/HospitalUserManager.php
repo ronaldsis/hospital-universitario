@@ -19,8 +19,8 @@
 		// requerida por IUserManager
 		public function validateUser( $username, $password ) {
 			// FIXME
-			return true;
-			//return $username == $password;
+			//return true;
+			return $username == $password;
 			//return $this->usernameExists($username);
 		}
 
