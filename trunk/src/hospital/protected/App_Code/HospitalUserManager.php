@@ -4,6 +4,7 @@
 			return 'Guest';
 		}
 
+		// requerida por IUserManager
 		public function getUser($username=null) {
 			$user = new TUser($this);
 			$user->setIsGuest(true);
@@ -15,16 +16,21 @@
 			return $user;
 		}
 
+		// requerida por IUserManager
 		public function validateUser( $username, $password ) {
 			// FIXME
-			return $this->usernameExists($username);
+			return true;
+			//return $username == $password;
+			//return $this->usernameExists($username);
 		}
 
+		// requerida por IUserManager
 		public function getUserFromCookie( $cookie ) {
 			// TODO: nada por ahora
 			return null;
 		}
 
+		// requerida por IUserManager
 		public function saveUserToCookie( $cookie ) {
 			// TODO: por ahora no se guarda nada
 		}
