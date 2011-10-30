@@ -10,7 +10,24 @@
 
 		<com:TTabPanel>
 			<com:TTabView Caption="Usuarios">
-				Aqui va la pagina de usuarios
+				<fieldset>
+					<legend>Nuevo usuario</legend>
+					<com:TLabel ForControl="loginNuevoUsuario" Text="Nombre de usuario"/>
+					<com:TTextBox ID="loginNuevoUsuario"/>
+					<br/>
+					<com:TRequiredFieldValidator ControlToValidate="loginNuevoUsuario" ErrorMessage="Por favor digite el nombre de usuario" Display="Dynamic"/>
+					<br/>
+					<com:TLabel ForControl="claveNuevoUsuario" Text="Contraseña"/>
+					<com:TTextBox ID="claveNuevoUsuario" TextMode="Password"/>
+					<br/>
+					<com:TRequiredFieldValidator ControlToValidate="claveNuevoUsuario" ErrorMessage="Por favor digite la contraseña para el nuevo usuario" Display="Dynamic"/>
+					<br/>
+					<com:TButton Text="Crear usuario" OnClick="crearUsuario"/>
+				</fieldset>
+				<fieldset>
+					<legend>Usuarios del sistema</legend>
+					Aqui viene la lista de usuarios
+				</fieldset>
 			</com:TTabView>
 			<com:TTabView Caption="Empleados">
 				Aqui va la pagina de empleados
