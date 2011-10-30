@@ -1,5 +1,4 @@
 <?php
-
 	class HospitalUserManager extends TModule implements IUserManager {
 		public function getGuestName() {
 			return 'Guest';
@@ -9,7 +8,7 @@
 		public function getUser($username=null) {
 			$user = new TUser($this);
 			$user->setIsGuest(true);
-			if( $username !== null && $this->usernameExists($username) ) {
+			if( $username !== null && $this->existeUsuario($username) ) {
 				$user->setIsGuest( false );
 				$user->setName( $username );
 				$user->setRoles( array('normal') );
@@ -21,7 +20,7 @@
 		public function validateUser( $username, $password ) {
 			$parametros = array('login' => $username, 'password' => $password );
 			$sqlmap = $this->Application->Modules['sqlmap']->Client;
-			$cuenta = $sqlmap->queryForObject('autenticacion',$parametros);
+			$cuenta = $sqlmap->queryForObject('Autenticacion',$parametros);
 			return $cuenta > 0;
 		}
 
@@ -36,9 +35,9 @@
 			// TODO: por ahora no se guarda nada
 		}
 
-		public function usernameExists($username) {
-			// FIXME
-			return true;
+		public function existeUsuario($username) {
+			$sqlmap = $this->Application->Modules['sqlmap']->Client;
+			return $sqlmap->queryForObject("ContarUsuario", $username) > 0;
 		}
 
 		// $usuario es un objeto Usuario
