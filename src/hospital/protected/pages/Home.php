@@ -23,13 +23,18 @@
 			$usuario = new Usuario();
 			$usuario->login = $this->loginNuevoUsuario->Text;
 			$usuario->clave = $this->claveNuevoUsuario->Text;
-			$users->crearUsuario($usuario);
+			try {
+				$users->crearUsuario($usuario);
+			}
+			catch( TDbException $e ) {
+				// TODO: notificar al usuario en la página.
+				error_log("Se detectó un problema de concurrencia en la inserción de usuarios.");
+			}
 			$this->cargarListaUsuarios();
 		}
 
 		public function onLoad($param) {
 			parent::onLoad($param);
-			error_log("antes del if");
 			if( !$this->IsPostBack ) {
 				$this->cargarListaUsuarios();
 			}
@@ -39,6 +44,14 @@
 			$users = $this->Application->Modules['users'];
 			$this->listaUsuarios->DataSource = $users->obtenerUsuarios();
 			$this->listaUsuarios->dataBind();
+		}
+
+		public function chequearLogin($sender, $param) {
+			error_log("por aqui...");
+			$users = $this->Application->Modules['users'];
+			if( $users->existeUsuario($this->loginNuevoUsuario->Text) ) {
+				$param->IsValid = false;
+			}
 		}
 	}
 ?>

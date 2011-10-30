@@ -16,6 +16,7 @@
 					<com:TTextBox ID="loginNuevoUsuario" ValidationGroup="usuario"/>
 					<br/>
 					<com:TRequiredFieldValidator ControlToValidate="loginNuevoUsuario" ErrorMessage="Por favor digite el nombre de usuario" Display="Dynamic" ValidationGroup="usuario"/>
+					<com:TCustomValidator ControlToValidate="loginNuevoUsuario" Display="Dynamic" OnServerValidate="chequearLogin" ErrorMessage="El usuario ya existe." ValidationGroup="usuario"/>
 					<br/>
 					<com:TLabel ForControl="claveNuevoUsuario" Text="Contraseña"/>
 					<com:TTextBox ID="claveNuevoUsuario" TextMode="Password" ValidationGroup="usuario"/>
