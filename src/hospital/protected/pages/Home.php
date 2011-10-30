@@ -24,17 +24,21 @@
 			$usuario->login = $this->loginNuevoUsuario->Text;
 			$usuario->clave = $this->claveNuevoUsuario->Text;
 			$users->crearUsuario($usuario);
+			$this->cargarListaUsuarios();
 		}
 
 		public function onLoad($param) {
 			parent::onLoad($param);
 			error_log("antes del if");
-			//if( !$this->IsPostBack ) {
-				error_log("despues del if");
-				$users = $this->Application->Modules['users'];
-				$this->listaUsuarios->DataSource = $users->obtenerUsuarios();
-				$this->listaUsuarios->dataBind();
-			//}
+			if( !$this->IsPostBack ) {
+				$this->cargarListaUsuarios();
+			}
+		}
+
+		private function cargarListaUsuarios() {
+			$users = $this->Application->Modules['users'];
+			$this->listaUsuarios->DataSource = $users->obtenerUsuarios();
+			$this->listaUsuarios->dataBind();
 		}
 	}
 ?>
