@@ -19,16 +19,18 @@
 		}
 
 		public function crearUsuario($sender, $param) {
-			$users = $this->Application->Modules['users'];
-			$usuario = new Usuario();
-			$usuario->login = $this->loginNuevoUsuario->Text;
-			$usuario->clave = $this->claveNuevoUsuario->Text;
-			try {
-				$users->crearUsuario($usuario);
-			}
-			catch( TDbException $e ) {
-				// TODO: notificar al usuario en la página.
-				error_log("Se detectó un problema de concurrencia en la inserción de usuarios.");
+			if( $this->Page->isValid ) {
+				$users = $this->Application->Modules['users'];
+				$usuario = new Usuario();
+				$usuario->login = $this->loginNuevoUsuario->Text;
+				$usuario->clave = $this->claveNuevoUsuario->Text;
+				try {
+					$users->crearUsuario($usuario);
+				}
+				catch( TDbException $e ) {
+					// TODO: notificar al usuario en la página.
+					error_log("Se detectó un problema de concurrencia en la inserción de usuarios.");
+				}
 			}
 			$this->cargarListaUsuarios();
 		}
@@ -47,7 +49,6 @@
 		}
 
 		public function chequearLogin($sender, $param) {
-			error_log("por aqui...");
 			$users = $this->Application->Modules['users'];
 			if( $users->existeUsuario($this->loginNuevoUsuario->Text) ) {
 				$param->IsValid = false;
