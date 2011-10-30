@@ -6,6 +6,14 @@
 		SELECT count(*) from usuario where login = #login# and clave = md5(#password#)
 	</select>
 
+	<select id="ConsultarUsuarios" resultClass="Usuario">
+		SELECT
+			id,
+			login,
+			clave
+		FROM Usuario
+	</select>
+
     <insert id="CrearPersona" parameterClass="Persona">
     	INSERT INTO Persona ( cedula, nombre, apellido, fechaNacimiento, telefono, direccion )
   		VALUES ( #cedula#, #nombre#, #apellido#, #fechaNacimiento#, #telefono#, #direccion# )
