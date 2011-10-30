@@ -18,10 +18,10 @@
 
 		// requerida por IUserManager
 		public function validateUser( $username, $password ) {
-			// FIXME
-			//return true;
-			return $username == $password;
-			//return $this->usernameExists($username);
+			$parametros = array('login' => $username, 'password' => $password );
+			$sqlmap = $this->Application->Modules['sqlmap']->Client;
+			$cuenta = $sqlmap->queryForObject('autenticacion',$parametros);
+			return $cuenta > 0;
 		}
 
 		// requerida por IUserManager
