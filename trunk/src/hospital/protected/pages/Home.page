@@ -13,20 +13,28 @@
 				<fieldset>
 					<legend>Nuevo usuario</legend>
 					<com:TLabel ForControl="loginNuevoUsuario" Text="Nombre de usuario"/>
-					<com:TTextBox ID="loginNuevoUsuario"/>
+					<com:TTextBox ID="loginNuevoUsuario" ValidationGroup="usuario"/>
 					<br/>
-					<com:TRequiredFieldValidator ControlToValidate="loginNuevoUsuario" ErrorMessage="Por favor digite el nombre de usuario" Display="Dynamic"/>
+					<com:TRequiredFieldValidator ControlToValidate="loginNuevoUsuario" ErrorMessage="Por favor digite el nombre de usuario" Display="Dynamic" ValidationGroup="usuario"/>
 					<br/>
 					<com:TLabel ForControl="claveNuevoUsuario" Text="Contraseña"/>
-					<com:TTextBox ID="claveNuevoUsuario" TextMode="Password"/>
+					<com:TTextBox ID="claveNuevoUsuario" TextMode="Password" ValidationGroup="usuario"/>
 					<br/>
-					<com:TRequiredFieldValidator ControlToValidate="claveNuevoUsuario" ErrorMessage="Por favor digite la contraseña para el nuevo usuario" Display="Dynamic"/>
+					<com:TRequiredFieldValidator ControlToValidate="claveNuevoUsuario" ErrorMessage="Por favor digite la contraseña para el nuevo usuario" Display="Dynamic" ValidationGroup="usuario"/>
 					<br/>
-					<com:TButton Text="Crear usuario" OnClick="crearUsuario"/>
+					<com:TButton Text="Crear usuario" OnClick="crearUsuario" ValidationGroup="usuario"/>
 				</fieldset>
 				<fieldset>
 					<legend>Usuarios del sistema</legend>
-					Aqui viene la lista de usuarios
+					<com:TDataGrid ID="listaUsuarios" 
+						EnableViewState="false"
+						CellPadding="2"
+						HeaderStyle.BackColor="black"
+						HeaderStyle.ForeColor="white"
+						ItemStyle.BackColor="#BFCFFF"
+						ItemStyle.Font.Italic="true"
+						AlternatingItemStyle.BackColor="#E6ECFF"
+					/>
 				</fieldset>
 			</com:TTabView>
 			<com:TTabView Caption="Empleados">
@@ -42,26 +50,26 @@
 				<fieldset>
 					<legend>Hospital Universitario</legend>
 					<com:TLabel ForControl="cambioMoneda" Text="Cambio por 1 dolar:"/>
-					<com:TTextBox ID="cambioMoneda"/>
+					<com:TTextBox ID="cambioMoneda" ValidationGroup="moneda"/>
 					<br/>
 					<com:TRequiredFieldValidator ControlToValidate="cambioMoneda" ErrorMessage="Por favor digite el cambio" 
-						Display="Dynamic" />
+						Display="Dynamic" ValidationGroup="moneda"/>
 					<com:TCompareValidator ControlToValidate="cambioMoneda" DataType="Float" ValueToCompare="0" Operator="GreaterThan" 
-						ErrorMessage="Por favor digite un número positivo" Display="Dynamic"/>
+						ErrorMessage="Por favor digite un número positivo" Display="Dynamic" ValidationGroup="moneda"/>
 					<br/>
 
 					<com:TLabel ForControl="cantidadACambiar" Text="Cantidad a cambiar:"/>
-					<com:TTextBox ID="cantidadACambiar"/>
+					<com:TTextBox ID="cantidadACambiar" ValidationGroup="moneda"/>
 					<br/>
-					<com:TRequiredFieldValidator ControlToValidate="cantidadACambiar" ErrorMessage="Por favor digite la cantidad a cambiar" Display="Dynamic"/>
-					<com:TDataTypeValidator ControlToValidate="cantidadACambiar" DataType="Float" ErrorMessage="Por favor digite un número" Display="Dynamic"/>
+					<com:TRequiredFieldValidator ControlToValidate="cantidadACambiar" ErrorMessage="Por favor digite la cantidad a cambiar" Display="Dynamic" ValidationGroup="moneda"/>
+					<com:TDataTypeValidator ControlToValidate="cantidadACambiar" DataType="Float" ErrorMessage="Por favor digite un número" Display="Dynamic" ValidationGroup="moneda"/>
 					<br/>
 
 					<span class="total">En pesos: </span>
 					<com:TActiveLabel ID="total" CssClass="resultado" />
 					<br/>
 
-					<com:TActiveButton Text="Cambiar" OnClick="clickCambiar">
+					<com:TActiveButton Text="Cambiar" OnClick="clickCambiar" ValidationGroup="moneda">
 						<prop:ClientSide.OnLoading>
 							$('<%= $this->total->ClientID %>').innerHTML = "calculando..."
 						</prop:ClientSide.OnLoading>
