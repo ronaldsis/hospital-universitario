@@ -1,4 +1,5 @@
 <?php
+
 	class HospitalUserManager extends TModule implements IUserManager {
 		public function getGuestName() {
 			return 'Guest';
@@ -38,6 +39,18 @@
 		public function usernameExists($username) {
 			// FIXME
 			return true;
+		}
+
+		// $usuario es un objeto Usuario
+		public function crearUsuario($usuario) {
+			$sqlmap = $this->Application->Modules['sqlmap']->Client;
+			$sqlmap->insert( "CrearUsuario", $usuario );
+		}
+ 
+		public function obtenerUsuarios() {
+			$sqlmap = $this->Application->Modules['sqlmap']->Client;
+			$resultado = $sqlmap->queryForList("ConsultarUsuarios");
+			return $resultado;
 		}
 	}
 ?>
