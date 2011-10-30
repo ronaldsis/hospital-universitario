@@ -2,8 +2,8 @@
 
 <sqlMapConfig>
 
-	<select id="autenticacion" resultClass="int">
-		SELECT count(*) from usuario where login = #login# and clave = md5(#password#)
+	<select id="Autenticacion" resultClass="int">
+		SELECT COUNT(*) FROM Usuario WHERE login = #login# AND clave = MD5( #password# )
 	</select>
 
 	<select id="ConsultarUsuarios" resultClass="Usuario">
@@ -12,6 +12,10 @@
 			login,
 			clave
 		FROM Usuario
+	</select>
+	
+	<select id="ContarUsuario" resultClass="int">
+		SELECT COUNT(*) FROM Usuario WHERE login=#login#
 	</select>
 
     <insert id="CrearPersona" parameterClass="Persona">
