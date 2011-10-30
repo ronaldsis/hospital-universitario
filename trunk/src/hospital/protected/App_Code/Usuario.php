@@ -1,8 +1,8 @@
 <?php
 	class Usuario{
-		private $id;
-		private $login;
-		private $clave;
+		public $id;
+		public $login;
+		public $clave;
 
 		public function getId(){
 			return $this->id;
