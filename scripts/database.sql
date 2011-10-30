@@ -78,7 +78,7 @@ CREATE  TABLE IF NOT EXISTS `Usuario` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL ,
   `clave` VARCHAR(45) NOT NULL , 
-  ADD UNIQUE INDEX `login_UNIQUE` (`login` ASC) ,
+  UNIQUE INDEX `login_UNIQUE` (`login` ASC) ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
