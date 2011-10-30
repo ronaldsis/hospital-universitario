@@ -7,10 +7,7 @@
 	</select>
 
 	<select id="ConsultarUsuarios" resultClass="Usuario">
-		SELECT
-			id,
-			login,
-			clave
+		SELECT id, login, clave
 		FROM Usuario
 	</select>
 	
