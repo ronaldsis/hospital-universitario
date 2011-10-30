@@ -4,27 +4,27 @@
 		private $login;
 		private $clave;
 
-		public getId(){
+		public function getId(){
 			return $this->id;
 		}
 		
-		public getLogin(){
+		public function getLogin(){
 			return $this->login;
 		}
 
-		public getClave(){
+		public function getClave(){
 			return $this->clave;
 		}
 		
-		public setId($id){
+		public function setId($id){
 			$this->id = $id;
 		}
 
-		public setLogin($login){
+		public function setLogin($login){
 			$this->login = $login;
 		}
         
-		public setClave($clave){
+		public function setClave($clave){
 			$this->clave = $clave;
 		}
 	}
