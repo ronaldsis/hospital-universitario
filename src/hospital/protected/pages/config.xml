@@ -3,7 +3,7 @@
 	<modules>
 		<module id="users" class="HospitalUserManager"/>
 		<module id="auth" class="TAuthManager" UserManager="users" LoginPage="Login" />
-		<module id="sqlmap" class="TSqlMapConfig" ConfigFile="/home/carmunoz/public_html/hospital/protected/sqlmap.xml">
+		<module id="sqlmap" class="TSqlMapConfig" ConfigFile="protected/sqlmap.xml">
 			<database ConnectionString="mysql:host=192.168.0.13;dbname=hospital" username="root" password="7568441968"/>
 		</module>
 	</modules>
