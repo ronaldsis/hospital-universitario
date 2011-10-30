@@ -32,7 +32,7 @@
 						HeaderStyle.BackColor="black"
 						HeaderStyle.ForeColor="white"
 						ItemStyle.BackColor="#BFCFFF"
-						ItemStyle.Font.Italic="true"
+						ItemStyle.Font.Italic="false"
 						AlternatingItemStyle.BackColor="#E6ECFF"
 					/>
 				</fieldset>
