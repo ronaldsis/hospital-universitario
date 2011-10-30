@@ -31,7 +31,7 @@
   
     <insert id="CrearUsuario" parameterClass="Usuario">
     	INSERT INTO Usuario ( login, clave )
-    	VALUES ( #login#, #clave# )
+    	VALUES ( #login#, md5( #clave# ) )
     </insert>
   
     <update id="ActualizarPersona" parameterClass="Persona">
