@@ -25,6 +25,26 @@
     (#FirstName#, #LastName#, #BirthDate#, #WeightInKilograms#, #HeightInMeters#)
   </insert>
 
+  <insert id="Insert" parameterClass="Persona">
+  	INSERT INTO Persona ( cedula, nombre, apellido, fechaNacimiento, telefono, direccion )
+	VALUES ( #cedula#, #nombre#, #apellido#, #fechaNacimiento#, #telefono#, #direccion# )
+  </insert>
+
+  <insert id="Insert" parameterClass="Empleado">
+	INSERT INTO Empleado ( idPersona, idCargo, idTipoEmpleado, idDependencia, idUsuario )
+	VALUES ( #idPersona#, #idCargo#, #idTipoEmpleado#, #idDependencia#, #idUsuario# )
+  </insert>
+
+  <insert id="Insert" parameterClass="Empleado">
+	INSERT INTO Paciente ( idPersona, idHistoriaClinica )
+	VALUES ( #idPersona#, #idHistoriaClinica# )
+  </insert>
+
+  <insert id="Insert" parameterClass="Usuario">
+    INSERT INTO Usuario ( login, clave )
+    VALUES ( #login#, #clave# )
+  </insert>
+	
   <update id="Update" parameterClass="Person">
    update PERSON set
     PER_FIRST_NAME = #FirstName#,
