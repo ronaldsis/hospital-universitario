@@ -9,6 +9,7 @@
 		-->
 		<module id="users" class="HospitalUserManager"/>
 		<module id="auth" class="TAuthManager" UserManager="users" LoginPage="Login" />
+		<module id="sqlmap" class="TSqlMapConfig" ConfigFile="/home/carmunoz/public_html/hospital/protected/sqlmap.xml"/>
 	</modules>
 	<authorization>
 		<allow pages="Login" users="?" />

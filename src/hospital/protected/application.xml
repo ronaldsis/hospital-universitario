@@ -9,6 +9,7 @@
     -->
     <using namespace="Application.App_Code.*"/>
     <using namespace="System.Security.*"/>
+    <using namespace="System.Data.SqlMap.*"/>
   </paths>
 
   <!-- configurations for modules -->
