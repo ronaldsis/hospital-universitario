@@ -7,35 +7,51 @@
 	<h1>Hospital Universitario</h1> 
 	<com:TForm>
 		<com:TLinkButton Text="Salir" OnClick="salir" CausesValidation="false"/>
-		<fieldset>
-			<legend>Hospital Universitario</legend>
-				<com:TLabel ForControl="cambioMoneda" Text="Cambio por 1 dolar:"/>
-				<com:TTextBox ID="cambioMoneda"/>
-				<br/>
-				<com:TRequiredFieldValidator ControlToValidate="cambioMoneda" ErrorMessage="Por favor digite el cambio" 
-					Display="Dynamic" />
-				<com:TCompareValidator ControlToValidate="cambioMoneda" DataType="Float" ValueToCompare="0" Operator="GreaterThan" 
-					ErrorMessage="Por favor digite un número positivo" Display="Dynamic"/>
-				<br/>
 
-				<com:TLabel ForControl="cantidadACambiar" Text="Cantidad a cambiar:"/>
-				<com:TTextBox ID="cantidadACambiar"/>
-				<br/>
-				<com:TRequiredFieldValidator ControlToValidate="cantidadACambiar" ErrorMessage="Por favor digite la cantidad a cambiar" Display="Dynamic"/>
-				<com:TDataTypeValidator ControlToValidate="cantidadACambiar" DataType="Float" ErrorMessage="Por favor digite un número" Display="Dynamic"/>
-				<br/>
+		<com:TTabPanel>
+			<com:TTabView Caption="Usuarios">
+				Aqui va la pagina de usuarios
+			</com:TTabView>
+			<com:TTabView Caption="Empleados">
+				Aqui va la pagina de empleados
+			</com:TTabView>
+			<com:TTabView Caption="Pacientes">
+				Aqui va la pagina de pacientes
+			</com:TTabView>
+			<com:TTabView Caption="Cocina">
+				Aqui va la pagina de cocina
+			</com:TTabView>
+			<com:TTabView Caption="Prueba">
+				<fieldset>
+					<legend>Hospital Universitario</legend>
+					<com:TLabel ForControl="cambioMoneda" Text="Cambio por 1 dolar:"/>
+					<com:TTextBox ID="cambioMoneda"/>
+					<br/>
+					<com:TRequiredFieldValidator ControlToValidate="cambioMoneda" ErrorMessage="Por favor digite el cambio" 
+						Display="Dynamic" />
+					<com:TCompareValidator ControlToValidate="cambioMoneda" DataType="Float" ValueToCompare="0" Operator="GreaterThan" 
+						ErrorMessage="Por favor digite un número positivo" Display="Dynamic"/>
+					<br/>
 
-				<span class="total">En pesos: </span>
-				<com:TActiveLabel ID="total" CssClass="resultado" />
-				<br/>
+					<com:TLabel ForControl="cantidadACambiar" Text="Cantidad a cambiar:"/>
+					<com:TTextBox ID="cantidadACambiar"/>
+					<br/>
+					<com:TRequiredFieldValidator ControlToValidate="cantidadACambiar" ErrorMessage="Por favor digite la cantidad a cambiar" Display="Dynamic"/>
+					<com:TDataTypeValidator ControlToValidate="cantidadACambiar" DataType="Float" ErrorMessage="Por favor digite un número" Display="Dynamic"/>
+					<br/>
 
-				<com:TActiveButton Text="Cambiar" OnClick="clickCambiar">
-					<prop:ClientSide.OnLoading>
-						$('<%= $this->total->ClientID %>').innerHTML = "calculando..."
-					</prop:ClientSide.OnLoading>
-				</com:TActiveButton>
+					<span class="total">En pesos: </span>
+					<com:TActiveLabel ID="total" CssClass="resultado" />
+					<br/>
 
-		</fieldset>
+					<com:TActiveButton Text="Cambiar" OnClick="clickCambiar">
+						<prop:ClientSide.OnLoading>
+							$('<%= $this->total->ClientID %>').innerHTML = "calculando..."
+						</prop:ClientSide.OnLoading>
+					</com:TActiveButton>
+				</fieldset>
+			</com:TTabView>
+		</com:TTabPanel>
 	</com:TForm>
 </body>
 </html>
