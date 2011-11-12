@@ -10,7 +10,6 @@
 
 		<com:TTabPanel>
 			<com:TTabView Caption="Usuarios">
-				<!-- aqui va un control -->
 				<com:UsuariosPanel id="usuarios" />
 			</com:TTabView>
 			<com:TTabView Caption="Empleados">
