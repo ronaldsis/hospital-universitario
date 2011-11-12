@@ -2,6 +2,7 @@
 	Prado::using('System.Web.UI.ActiveControls.*');
 
 	include_once('UsuariosPanel.php');
+	include_once('PacientesPanel.php');
 
 	class Home extends TPage {
 		public function clickCambiar($sender, $param) {

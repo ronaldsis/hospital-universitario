@@ -1,4 +1,4 @@
-<%@ Theme="Basic" %>
+<%@ Application.Globalization.Culture="es" Theme="Basic" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
@@ -10,13 +10,13 @@
 
 		<com:TTabPanel>
 			<com:TTabView Caption="Usuarios">
-				<com:UsuariosPanel id="usuarios" />
+				<com:UsuariosPanel ID="usuarios" />
 			</com:TTabView>
 			<com:TTabView Caption="Empleados">
 				Aqui va la pagina de empleados
 			</com:TTabView>
 			<com:TTabView Caption="Pacientes">
-				Aqui va la pagina de pacientes
+				<com:PacientesPanel ID="pacientes" />
 			</com:TTabView>
 			<com:TTabView Caption="Cocina">
 				Aqui va la pagina de cocina
