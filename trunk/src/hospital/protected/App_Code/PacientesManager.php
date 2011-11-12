@@ -9,6 +9,7 @@
 		// $persona es un objeto Persona
 		public function crearPaciente($persona) {
 			$sqlmap = $this->Application->Modules['sqlmap']->Client;
+			error_log("fecha: ".$persona->fechaNacimiento);
 			$sqlmap->insert( "CrearPersona", $persona );
 			$idPersona=$persona->id;
 			$paciente=new Paciente();

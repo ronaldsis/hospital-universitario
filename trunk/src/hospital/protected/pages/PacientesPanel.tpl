@@ -21,7 +21,7 @@
 		Display="Dynamic" OnServerValidate="chequearCedula" ErrorMessage="El paciente ya existe." ValidationGroup="paciente"/>
 	<br/>
 	<com:TLabel ForControl="fechaNacimiento" Text="Fecha de nacimiento"/>
-	<com:TDatePicker DateFormat="MMMM/dd/yyyy" FromYear="1900" InputMode="DropDownList" ID="fechaNacimiento" ValidationGroup="paciente"/>
+	<com:TDatePicker DateFormat="MMMM/dd/yyyy" FromYear="1971" InputMode="DropDownList" ID="fechaNacimiento" ValidationGroup="paciente"/>
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="fechaNacimiento" 
 		ErrorMessage="Por favor digite la fecha de nacimiento" Display="Dynamic" ValidationGroup="paciente"/>
