@@ -17,9 +17,11 @@
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="cedula" 
 		ErrorMessage="Por favor digite la cédula" Display="Dynamic" ValidationGroup="paciente"/>
+	<com:TCustomValidator ControlToValidate="cedula" 
+		Display="Dynamic" OnServerValidate="chequearCedula" ErrorMessage="El paciente ya existe." ValidationGroup="paciente"/>
 	<br/>
 	<com:TLabel ForControl="fechaNacimiento" Text="Fecha de nacimiento"/>
-	<com:TDatePicker DateFormat="MMMM/dd/yyyy" InputMode="DropDownList" ID="fechaNacimiento" ValidationGroup="paciente"/>
+	<com:TDatePicker DateFormat="MMMM/dd/yyyy" FromYear="1900" InputMode="DropDownList" ID="fechaNacimiento" ValidationGroup="paciente"/>
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="fechaNacimiento" 
 		ErrorMessage="Por favor digite la fecha de nacimiento" Display="Dynamic" ValidationGroup="paciente"/>
@@ -46,21 +48,7 @@
 		AlternatingItemStyle.BackColor="#E6ECFF"
 	/>
 </fieldset>
-<!-- <fieldset>
-	<legend>Nuevo usuario</legend>
-	<com:TLabel ForControl="loginNuevoUsuario" Text="Nombre de usuario"/>
-	<com:TTextBox ID="loginNuevoUsuario" ValidationGroup="paciente"/>
-	<br/>
-	<com:TRequiredFieldValidator ControlToValidate="loginNuevoUsuario" ErrorMessage="Por favor digite el nombre de usuario" Display="Dynamic" ValidationGroup="paciente"/>
-	<com:TCustomValidator ControlToValidate="loginNuevoUsuario" Display="Dynamic" OnServerValidate="chequearLogin" ErrorMessage="El usuario ya existe." ValidationGroup="paciente"/>
-	<br/>
-	<com:TLabel ForControl="claveNuevoUsuario" Text="Contraseña"/>
-	<com:TTextBox ID="claveNuevoUsuario" TextMode="Password" ValidationGroup="paciente"/>
-	<br/>
-	<com:TRequiredFieldValidator ControlToValidate="claveNuevoUsuario" ErrorMessage="Por favor digite la contraseña para el nuevo usuario" Display="Dynamic" ValidationGroup="paciente"/>
-	<br/>
-	<com:TButton Text="Crear usuario" OnClick="crearUsuario" ValidationGroup="paciente"/>
-</fieldset>
+<!-- 
 <fieldset>
 	<legend>Usuarios del sistema</legend>
 	<com:TDataGrid ID="listaUsuarios" 

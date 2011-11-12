@@ -14,10 +14,25 @@
 	<select id="ContarUsuario" resultClass="int">
 		SELECT COUNT(*) FROM Usuario WHERE login=#login#
 	</select>
+	
+	<select id="ConsultarPacientes" resultClass="Persona">
+		SELECT Persona.* FROM Persona, Paciente WHERE Paciente.idpersona = Persona.id 
+	</select>
+	
+	<select id="ContarPaciente" resultClass="int">
+		SELECT COUNT(*) FROM Persona WHERE cedula=#cedula#
+	</select>
+	
+	<select id="BuscarIdPersona" resultClass="int">
+		SELECT id FROM Persona WHERE cedula=#cedula#
+	</select>
 
     <insert id="CrearPersona" parameterClass="Persona">
     	INSERT INTO Persona ( cedula, nombre, apellido, fechaNacimiento, telefono, direccion )
   		VALUES ( #cedula#, #nombre#, #apellido#, #fechaNacimiento#, #telefono#, #direccion# )
+		<selectKey resultClass="int" type="post" property="id">
+			SELECT LAST_INSERT_ID() as value
+		</selectKey>
     </insert>
   
     <insert id="CrearEmpleado" parameterClass="Empleado">
@@ -26,8 +41,8 @@
     </insert>
   
     <insert id="CrearPaciente" parameterClass="Paciente">
-  		INSERT INTO Paciente ( idPersona, idHistoriaClinica )
-  		VALUES ( #idPersona#, #idHistoriaClinica# )
+  		INSERT INTO Paciente ( idPersona  )
+  		VALUES ( #idPersona# )
     </insert>
   
     <insert id="CrearUsuario" parameterClass="Usuario">
