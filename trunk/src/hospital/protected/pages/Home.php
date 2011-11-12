@@ -1,6 +1,8 @@
 <?php
 	Prado::using('System.Web.UI.ActiveControls.*');
 
+	include_once('UsuariosPanel.php');
+
 	class Home extends TPage {
 		public function clickCambiar($sender, $param) {
 			if( $this->Page->isValid ) {
@@ -18,41 +20,5 @@
 			$this->Response->Redirect($this->Service->ConstructUrl($auth->LoginPage));
 		}
 
-		public function crearUsuario($sender, $param) {
-			if( $this->Page->isValid ) {
-				$users = $this->Application->Modules['users'];
-				$usuario = new Usuario();
-				$usuario->login = $this->loginNuevoUsuario->Text;
-				$usuario->clave = $this->claveNuevoUsuario->Text;
-				try {
-					$users->crearUsuario($usuario);
-				}
-				catch( TDbException $e ) {
-					// TODO: notificar al usuario en la página.
-					error_log("Se detectó un problema de concurrencia en la inserción de usuarios.");
-				}
-			}
-			$this->cargarListaUsuarios();
-		}
-
-		public function onLoad($param) {
-			parent::onLoad($param);
-			if( !$this->IsPostBack ) {
-				$this->cargarListaUsuarios();
-			}
-		}
-
-		private function cargarListaUsuarios() {
-			$users = $this->Application->Modules['users'];
-			$this->listaUsuarios->DataSource = $users->obtenerUsuarios();
-			$this->listaUsuarios->dataBind();
-		}
-
-		public function chequearLogin($sender, $param) {
-			$users = $this->Application->Modules['users'];
-			if( $users->existeUsuario($this->loginNuevoUsuario->Text) ) {
-				$param->IsValid = false;
-			}
-		}
 	}
 ?>
