@@ -20,6 +20,7 @@
 				<com:TRequiredFieldValidator ControlToValidate="password" Display="Dynamic" ErrorMessage="Por favor digite la contraseña."/>
 				<br/>
 				<com:TButton Text="Entrar" onClick="entrar" />
+				<com:TLabel ID="mensaje" Text="" />
 			</fieldset>
 		</com:TForm>
 	</body>
