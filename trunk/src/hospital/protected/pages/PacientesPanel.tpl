@@ -1,12 +1,12 @@
 <fieldset>
 	<legend>Nuevo paciente</legend>
-	<com:TLabel ForControl="nombre" Text="Nombre"/>
+	<com:TLabel ForControl="nombre" Text="Nombres"/>
 	<com:TTextBox ID="nombre" ValidationGroup="paciente"/>
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="nombre" 
 		ErrorMessage="Por favor digite el nombre" Display="Dynamic" ValidationGroup="paciente"/>
 	<br/>
-	<com:TLabel ForControl="apellido" Text="Apellido"/>
+	<com:TLabel ForControl="apellido" Text="Apellidos"/>
 	<com:TTextBox ID="apellido" ValidationGroup="paciente"/>
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="apellido" 
