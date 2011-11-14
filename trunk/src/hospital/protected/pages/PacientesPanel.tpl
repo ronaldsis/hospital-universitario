@@ -19,6 +19,8 @@
 		ErrorMessage="Por favor digite la cédula" Display="Dynamic" ValidationGroup="paciente"/>
 	<com:TCustomValidator ControlToValidate="cedula" 
 		Display="Dynamic" OnServerValidate="chequearCedula" ErrorMessage="El paciente ya existe." ValidationGroup="paciente"/>
+	<com:TRegularExpressionValidator ControlToValidate="cedula" ValidationGroup="paciente"
+		Display="Dynamic" RegularExpression="\d{8,10}" ErrorMessage="La cedula es un valor unicamente numerico, de 8 a 10 digitos"/>
 	<br/>
 	<com:TLabel ForControl="fechaNacimiento" Text="Fecha de nacimiento"/>
 	<com:TDatePicker DateFormat="MMMM/dd/yyyy" FromYear="1971" InputMode="DropDownList" ID="fechaNacimiento" ValidationGroup="paciente"/>
@@ -29,6 +31,8 @@
 	<com:TLabel ForControl="telefono" Text="Teléfono"/>
 	<com:TTextBox ID="telefono" ValidationGroup="paciente"/>
 	<br/>
+	<com:TRegularExpressionValidator ControlToValidate="telefono" ValidationGroup="paciente"
+		Display="Dynamic" RegularExpression="\d{7,10}" ErrorMessage="El telefono es un número de 7 a 10 digitos"/>
 	<br/>
 	<com:TLabel ForControl="direccion" Text="Dirección"/>
 	<com:TTextBox ID="direccion" ValidationGroup="paciente"/>
