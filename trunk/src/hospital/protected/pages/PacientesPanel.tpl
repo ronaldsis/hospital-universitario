@@ -5,12 +5,16 @@
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="nombre" 
 		ErrorMessage="Por favor digite el nombre" Display="Dynamic" ValidationGroup="paciente"/>
+	<com:TRegularExpressionValidator ControlToValidate="nombre" ValidationGroup="paciente"
+		Display="Dynamic" RegularExpression="\D+" ErrorMessage="Los nombres no contienen números"/>
 	<br/>
 	<com:TLabel ForControl="apellido" Text="Apellidos"/>
 	<com:TTextBox ID="apellido" ValidationGroup="paciente"/>
 	<br/>
 	<com:TRequiredFieldValidator ControlToValidate="apellido" 
 		ErrorMessage="Por favor digite el apellido" Display="Dynamic" ValidationGroup="paciente"/>
+	<com:TRegularExpressionValidator ControlToValidate="apellido" ValidationGroup="paciente"
+		Display="Dynamic" RegularExpression="\D+" ErrorMessage="Los apellidos no contienen números"/>
 	<br/>
 	<com:TLabel ForControl="cedula" Text="Cédula"/>
 	<com:TTextBox ID="cedula" ValidationGroup="paciente"/>
